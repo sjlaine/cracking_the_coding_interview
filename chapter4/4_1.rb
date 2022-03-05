@@ -2,8 +2,8 @@
 
 #!/usr/bin/env ruby
 
-require_relative "graph.rb"
-require_relative "queue.rb"
+require_relative 'graph.rb'
+require_relative 'queue.rb'
 
 zero = Node.new(0)
 one = Node.new(1)
@@ -55,5 +55,5 @@ def route_between?(node1, node2)
   false
 end
 
-puts route_between?(one, three) # true
+puts route_between?(three, one) # true
 puts route_between?(one, six) # false
