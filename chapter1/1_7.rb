@@ -1,23 +1,5 @@
 #!/usr/bin/env ruby
 
-# NxN matrix
-# 4pixels x 4pixels
-# matrix =
-# [
-#   [1, 1, 1, 1],
-#   [0, 1, 0, 0],
-#   [0, 0, 0, 0],
-#   [0, 0, 0, 0],
-# ]
-
-# result =
-# [
-#   [0, 0, 0, 1],
-#   [0, 0, 1, 1],
-#   [0, 0, 0, 1],
-#   [0, 0, 0, 1],
-# ]
-
 def print(matrix)
   row = 0
 
