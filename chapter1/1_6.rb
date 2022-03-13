@@ -32,9 +32,9 @@ def compress_str(str)
 end
 
 compress_str('aabcccccaaa')
-# puts compress_str('a')
+compress_str('a')
 
-def compress_optimized(str)
+def compress_2(str)
   val = ''
   time = Benchmark.measure {
     count_idx = 0
@@ -60,5 +60,56 @@ def compress_optimized(str)
   puts "time: #{time.real}, val: #{val}"
 end
 
+compress_2('aabcccccaaa')
+compress_2('a')
+
+def compressed_len(str)
+  len = 2
+  i = 1
+  prev = str[0]
+
+  while(i < str.length)
+    if(prev != str[i])
+      len += 2
+      prev = str[i]
+    end
+
+    i += 1
+  end
+
+  len
+end
+
+def compress_optimized(str)
+  val = ''
+  time = Benchmark.measure {
+    # check if the original str will be shorter than compressed
+    if (compressed_len(str) > str.length)
+      val = str
+    else
+      count_idx = 0
+      prev = str[0]
+      counts = [[prev, 1]]
+      i = 1
+
+      while(i < str.length)
+        if(str[i] == prev)
+          counts[count_idx][1] += 1
+        else
+          count_idx += 1
+          prev = str[i]
+          counts[count_idx] = [prev, 1]
+        end
+
+        i += 1
+      end
+
+      val = counts.flatten.join
+    end
+  }
+
+  puts "time: #{time.real}, val: #{val}"
+end
+
 compress_optimized('aabcccccaaa')
-# compress_optimized('a')
+compress_optimized('a')
