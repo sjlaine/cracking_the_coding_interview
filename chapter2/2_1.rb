@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
-require_relative 'list_node.rb'
+require_relative 'singly_linked_list.rb'
 
 def remove_dupes(list)
   p1 = list.head
   p2 = p1.next
 
-  while(p2 && !p1.next.nil?)
-    while(!p2.next.nil?)
+  while(p2 && p1.next)
+    while(p2.next)
       next_node = p2.next
 
       if(p1.val == p2.val)

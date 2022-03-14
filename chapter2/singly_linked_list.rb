@@ -9,10 +9,28 @@ class Node
 end
 
 class List
-  attr_accessor :head
+  attr_accessor :head, :size
 
   def initialize(head)
     @head = head
+    @size = 1
+  end
+
+  def add_to_beginning(node)
+    node.next = head
+    @head = node
+    @size += 1
+  end
+
+  def add_to_end(node)
+    current = head
+
+    while(current.next)
+      current = current.next
+    end
+
+    current.next = node
+    @size += 1
   end
 
   def remove(node)
